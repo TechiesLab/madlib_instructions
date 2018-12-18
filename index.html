@@ -1,0 +1,561 @@
+<html>
+<head>
+  <title>Instructions madlib</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/prism.css" data-noprefix />
+  <link href="https://fonts.googleapis.com/css?family=B612+Mono|Bungee+Shade|Cutive+Mono|IM+Fell+DW+Pica+SC|Poppins|Share+Tech+Mono|VT323" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-candy-cane"></i>   Madlib de Noël   <i class="fas fa-gifts"></i></h1>
+      <h2>Instructions</h2>
+    </div>
+
+    <div class="step">
+      <h3>Voici ton objectif! <i class="fas fa-hand-point-right"></i>  <a href="">Madlib de Margo</a></h3>
+    </div>
+    <div class="step">
+      <h3>Crée ta folle histoire</h3>
+      <p>Pour cette étape, utilise une feuille de papier <i class="fas fa-scroll"></i> et un crayon <i class="fas fa-pencil-alt"></i> !</p>
+      <p>Le mieux, c'est de créer avec ton partenaire ta propre histoire et ensuite de la "trouer". Le joueur devra remplir les "trous" avec les mots de son choix.</p>
+      <p>
+        Pour plus de plaisir, faire des "trous" variés avec des:
+        <ul>
+          <li>adjectifs</li>
+          <li>adverbes</li>
+          <li>verbes</li>
+          <li>personnages célèbres</li>
+          <li>des noms communs (partie du corps, couleur, liquide, etc.)</li>
+        </ul>
+      </p>
+
+      <p>Voici l'histoire que j'utilise dans mon exemple:</p>
+      <blockquote id="story">
+        Dans quelques pays (Belgique, Luxembourg, <strong>Pays-Bas</strong>), le père Noël n'a jamais réussi à détrôner <strong>Saint Nicolas</strong>. C'est donc le 6 décembre, que les enfants reçoivent la plupart de leurs cadeaux, dans <strong>les souliers</strong>, disposés près de la <strong>cheminée</strong>. Les enfants laissent aussi des <strong>carottes</strong> pour l'<strong>âne</strong> de <strong>Saint Nicolas</strong>. Ils reçoivent beaucoup de friandises et de <strong>cadeaux</strong>. Mais Noël se fête de plus en plus souvent. Les <strong>cadeaux</strong> sont alors distribués le soir du <strong>24</strong> <strong>décembre</strong>, au réveillon.
+      </blockquote>
+    </div>
+    <div class="step">
+      <h3>Prépare ton code</h3>
+
+      <p>Crée un <strong>dossier</strong> dans lequel tu sauvegardera les fichiers HTML, CSS, etc.     Ensuite seulement, ouvre le dossier dans Sublime Text.</p>
+
+      <p>Crée ton fichier <em>index.html</em> et ajoute les bâlises habituelles:</p>
+
+      <pre class="language-html line-numbers">
+<code><!--<html>
+  <head>
+    <title>Madlibs</title>
+    <meta charset="utf-???">
+  </head>
+  <body>
+    <h1>La folle histoire</h1>
+  </body>
+  </html> --></code>
+      </pre>
+
+      <p>À toi de remplacer les "???" de la ligne</p>
+      <pre class="language-html line-numbers"><code><!-- <meta charset="utf-???"> --></code></pre>
+
+    </div>
+    <div class="step">
+      <h3>Code le formulaire</h3>
+
+      <p>Lorsque le joueur attérit sur ton site, il doit remplir le formulaire pour compléter les "trous". Pour créer un formulaire en HTML, il faut utiliser la balise <em>&lt;form&gt;</em>. À l'intérier de la balise <em>&lt;form&gt;</em>, les deux pricipales balises sont <em>&lt;input&gt;</em> et <em>&lt;label&gt;</em>. "Input", ça veut dire saisie. "Label", ça veut dire étiquette.</p>
+
+      <p>Pour que le joueur saisisse un pays et un personnage célèbre, je peux coder ceci:</p>
+      <pre class="language-html line-numbers">
+<code><!--<form>
+  <label for="country">Pays:</label>
+  <input type="text" id="country">
+
+  <label for="character">Un personnage célèbre:</label>
+  <input type="text" id="character">
+</form> --></code>
+      </pre>
+
+      <p>Et le résultat aura l'air de ceci:</p>
+
+      <div class="example">
+        <form>
+          <label for="country">Pays:</label>
+          <input type="text" id="country">
+
+          <label for="character">Un personnage célèbre:</label>
+          <input type="text" id="character">
+        </form>
+      </div>
+
+      <p>Note que pour lier l'étiquette (<em>label</em>) à la bonne saisie (<em>input</em>), il faut que l'attribut <em>for</em> de <em>label</em> ait la même valeur que l'attribut <em>id</em> de <em>input</em>. Ici, par exemple, c'est <em>"country"</em>:</p>
+
+      <pre class="language-html line-numbers">
+<code><!--<label for="country">Pays:</label>
+<input type="text" id="country"> --></code></pre>
+
+      <p>J'ai choisi "country" mais j'aurais pu choisir n'importe quel autre mot. "Land", par exemple. </p>
+
+      <pre class="language-html line-numbers">
+<code><!--<label for="land">Pays:</label>
+<input type="text" id="land"> --></code></pre>
+
+      <p>Tu noteras que "country" et "land" sont des mots en anglais mais que sur le formulaire que remplit le joueur, l'étiquette est en français ("Pays"). C'est normal! Les développeurs pros essaient toujours de garder le code en anglais et le contenu dans la langue du joueur.</p>
+      <p>Si tu ne connais pas la traduction d'un mot en anglais, tu peux utiliser <strong>Google Translate</strong> ou demander à un(e) prof. Au pire, tu utilises un mot en français! Ça fonctionnera quand même <i class="fas fa-smile-wink"></i></p>
+      <p>Tu peux bien entendu ajouter autant de saisies (<em>input</em>) que tu veux. Par contre, il ne faut pas que ton formulaire soit trop long, sinon les joueurs vont perdre patience...</p>
+    </div>
+  <div class="step">
+    <h3>Embellis ta page et ton formulaire</h3>
+    <p>Qui dit page stylée, dit CSS! Crée ton fichier <em>style.css</em> et relie le à ton fichier HTML. Indice: ça se passe dans le <em>head</em> de ton code HTML...</p>
+    <pre class="language-html line-numbers">
+<code><!--<head>
+  <link rel="stylesheet" href="style.css">
+</head> --></code></pre>
+
+      <p>Tu peux trouver une belle couleur d'arrière-plan sur le site <a href="https://coolors.co" target="_blank">coolors.co</a> et l'ajouter dans le CSS:</p>
+      <pre><code class="language-css line-numbers">body {
+  background-color: #b2b09b;
+}</code></pre>
+
+      <p>Tu peux importer des polices sympa sur <a href="https://fonts.google.com">Google Fonts</a> et les rajouter dans le <em>&lt;head&gt;</em> de ton code HTML:</p>
+
+      <pre class="language-html line-numbers"><code><!--<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">--></code></pre>
+
+
+      <p>Tu peux ajouter des marges sur les côtés de ta page en créant une balise <em>div</em> dans ton fichier HTML qui contient le titre et le formulaire. Cette <em>div</em> a une classe <em>container</em>. Ça sera utile pour ton fichier CSS!</p>
+      <pre class="language-html line-numbers">
+<code><!--<body>
+  <div class="container">
+    <h1>La folle histoire</h1>
+    <form>
+      <label for="country">Pays:</label>
+      <input type="text" id="country">
+
+      <label for="character">Un personnage célèbre:</label>
+      <input type="text" id="character">
+    </form>
+  </div>
+</body>--></code>
+      </pre>
+
+      <p>Dans ton fichier <em>style.css</em>, voici le code qui crée les marges (<em>margin</em>):</p>
+      <pre><code class="language-css line-numbers">.container {
+  width: 500px;
+  margin: 90px auto;
+}</code></pre>
+      <p>Styliser un formulaire, c'est très dur! Mais en ajoutant une div autour de chaque paire de <em>label</em> + <em>input</em>, tu peux déjà faire respirer un peu ton formulaire.</p>
+      <pre class="language-html line-numbers">
+<code><!--<body>
+  <div class="container">
+    <h1>La folle histoire</h1>
+    <form>
+      <div>
+        <label for="country">Pays:</label>
+        <input type="text" id="country">
+      </div>
+      <div>
+        <label for="character">Un personnage célèbre:</label>
+        <input type="text" id="character">
+      </div>
+    </form>
+  </div>
+</body>--></code></pre>
+      <p>Et voici le résultat:</p>
+      <div class="example">
+        <form>
+          <div>
+            <label for="country">Pays:</label>
+            <input type="text" id="country">
+          </div>
+          <div>
+            <label for="character">Un personnage célèbre:</label>
+            <input type="text" id="character">
+          </div>
+        </form>
+      </div>
+
+      <p>Finalement, tu peux utiliser un texte de substitution avec l'attribut <em>placeholder</em>.</p>
+      <pre class="language-html line-numbers">
+<code><!--<body>
+  <div class="container">
+    <h1>La folle histoire</h1>
+    <form>
+      <div>
+        <label for="country">Pays:</label>
+        <input type="text" id="country" placeholder="Canada">
+      </div>
+      <div>
+        <label for="character">Un personnage célèbre:</label>
+        <input type="text" id="character" placeholder="Céline Dion">
+      </div>
+    </form>
+  </div>
+</body>--></code></pre>
+      <div class="example">
+        <form>
+          <div>
+            <label for="country">Pays:</label>
+            <input type="text" id="country" placeholder="Canada">
+          </div>
+          <div>
+            <label for="character">Un personnage célèbre:</label>
+            <input type="text" id="character" placeholder="Céline Dion">
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="step">
+      <h3>Ajoute un gros bouton à ton formulaire</h3>
+      <p>Sans bouton... pas de jeu! C'est en cliquant le bouton que le joueur va déclancher notre code Javascript qui crée la folle histoire. Voici le code qu'il faut ajouter à notre formulaire pour créer un bouton:</p>
+      <pre class="language-html line-numbers"><code><!--<input type="button" id="submit" value="Raconte-moi une histoire!">--></code></pre>
+
+      <p>Note: il est super important que l'attribut <em>type</em> ait la valeur <em>"button"</em>.</p>
+      <p>Si on ajoute cette ligne à notre formulaire, ça donne ceci:</p><pre class="language-html line-numbers">
+<code><!--<body>
+  <div class="container">
+    <h1>La folle histoire</h1>
+
+    <form>
+      <div>
+        <label for="country">Pays:</label>
+        <input type="text" id="country" placeholder="Canada">
+      </div>
+      <div>
+        <label for="character">Un personnage célèbre:</label>
+        <input type="text" id="character" placeholder="Céline Dion">
+      </div>
+      <div>
+        <input type="button" id="submit" value="Raconte-moi une histoire!">
+      </div>
+    </form>
+
+  </div>
+</body>--></code></pre>
+      <div class="example">
+        <form>
+          <div>
+            <label for="country">Pays:</label>
+            <input type="text" id="country" placeholder="Canada">
+          </div>
+          <div>
+            <label for="character">Un personnage célèbre:</label>
+            <input type="text" id="character" placeholder="Céline Dion">
+          </div>
+          <div>
+            <input type="button" id="submit" value="Raconte-moi une histoire!">
+          </div>
+        </form>
+      </div>
+      <p>Rien ne se passe si tu cliques le bouton maintenant. Pour qu'une action se déclenche, il nous faut un peu de code <strong>Javascript</strong>. Mais avant ça, si tu trouves comme moi que le bouton est plutôt moche, tu peux le styliser. Encore une fois, il faut utiliser du code CSS. J'ai ajouté une classe <em>red-button</em> à mon <em>input</em>, comme ceci:</p>
+      <pre class="language-html line-numbers"><code><!--<input type="button" value="Raconte-moi une histoire!" class="red-button">--></code></pre>
+
+      <p>Et voici ce que j'ai mis dans mon code CSS:</p>
+      <pre><code class="language-css line-numbers">.red-button {
+  font-family: 'Poppins', sans-serif;
+  color: #b2b09b;
+  font-weight: bold;
+  font-size: 26px;
+  text-decoration: none;
+  background-color: #ff3c38;
+  padding: 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+}
+
+.red-button:hover {
+  background-color: #ff6f59;
+}</code></pre>
+
+      <div class="example">
+        <form>
+          <div>
+            <label for="country">Pays:</label>
+            <input type="text" id="country" placeholder="Canada">
+          </div>
+          <div>
+            <label for="character">Un personnage célèbre:</label>
+            <input type="text" id="character" placeholder="Céline Dion">
+          </div>
+          <div>
+            <input type="button" value="Raconte-moi une histoire!" class="red-button">
+          </div>
+        </form>
+      </div>
+      <p>Sympa, non? En passant, <em>.red-button:hover</em>, c'est pour que le bouton change de couleur quand on passe la souris par dessus le bouton. En langage bien technique, on dit que <em>:hover</em> est un <strong>pseudo-élément</strong>.</p>
+    </div>
+    <div class="step">
+      <h3>Javascript!</h3>
+      <p>C'est l'heure de la magie <i class="fas fa-hat-wizard"></i>! Enfin, je veux dire que c'est l'heure de coder avec le langage Javascript!</p>
+
+      <p>Première étape créer une balise <em>script</em> juste avant ta balise fermante <em>&lt;/body&gt;</em>, comme ceci:</p>
+      <pre class="language-html line-numbers"><code><!--  <script>
+
+  </script>
+</body>--></code></pre>
+      <p>C'est à l'intérieur de cette balise qu'on va mettre notre code Javascript.</p>
+    </div>
+    <div class="step">
+      <h3>Écouter le bouton</h3>
+      <p>Eh oui, quand on clique notre bouton, il chante <i class="fas fa-music"></i> ! Bon, pas réellement... mais l'idée, c'est que quand un joueur clique le bouton, le bouton dit:</p>
+      <p><i>"Je viens d'être cliquéééééé"</i></p>
+      <p>Notre objectif, c'est d'<strong>écouter</strong> le bouton et lorsqu'un <strong>événement</strong> (un clic) se produit, on affiche notre folle histoire! Pour cela, on utilise en Javascript un <em>Event Listener</em>. Littéralement, un "écouteur d'événement".</p>
+
+      <p>Ajoute ce code dans la partie <em>script</em> de ton HTML:</p>
+      <pre class="language-html line-numbers"><code><!--<script>
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", XXX);
+</script>--></code></pre>
+
+      <p>Un peu d'explications.</p>
+      <p>À la ligne 2, on crée une <strong>variable</strong> qu'on appelle <em>submitButton</em>. Une variable, c'est une case dans la mémoire de l'ordinateur dans laquelle on stocke des informations.</p>
+      <p>À ton avis, quelle information stocke-t-on dans la variable <em>submitButton</em>?</p>
+      <div class="example">
+      <form>
+          <div>
+            <input type="radio" id="memory-choice-1" name="memory" value="memory-choice-1">
+            <label for="memory-choice-1">Un document de la Première guerre mondiale</label>
+          </div>
+          <div>
+            <input type="radio" id="memory-choice-2" name="memory" value="memory-choice-2">
+            <label for="memory-choice-2">Un élément HTML qui a un attribut <em>id</em> dont la valeur est <em>"submit"</em></label>
+          </div>
+          <div>
+            <input type="radio" id="memory-choice-3" name="memory" value="memory-choice-3">
+            <label for="memory-choice-3">Des carottes pour Saint Nicolas</label>
+          </div>
+          <div>
+            <input type="button" id="memory-form-button" value="Go!" class="green-button">
+          </div>
+      </form>
+      </div>
+      <p>La fonction <em>getElementById()</em> permet d'aller chercher l'élément HTML avec le bon <em>id</em>. Cet élément, c'est notre bouton!</p>
+    </div>
+    <div class="step">
+      <p>À la ligne 3, on rajoute le fameux "écouteur d'événement" au bouton qu'on vient de chercher. Encore une fois, c'est une fonction. On spécifie que l'événement qu'on écoute est un <em>click</em>. Plein d'autres événements existent. Si le joueur ne fait que passer sa souris par-dessus notre bouton sans cliquer, c'est un événement! Cet événement s'appelle <em>mouseover</em>. Si on voulait écouter cet événement, notre code Javascript aurait l'air de ceci:</p><pre class="language-html line-numbers"><code><!--<script>
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("mouseover", XXX);
+</script>--></code></pre>
+      <p>Les trois XXX à la ligne 3. Ce n'est pas du vrai code! Je les ai mis là en attendant de mettre le vrai code, c'est-à-dire le code pour créer notre histoire folle.</p>
+
+      <p>Par contre, comme le code de l'animation est assez long, on ne va pas le mettre directement là où se trouvent les trois XXX. On va créer une <strong>fonction</strong>. Une fonction, c'est plusieurs instructions qu'on veut que l'ordinateur mémorise. Un peu comme une variable. Une variable sert à mémoriser des données, tandis qu'une fonction sert à mémoriser des instructions (et parfois des données aussi!).</p>
+
+      <p>Certaines fonctions existent déjà, on n'a pas besoin de les inventer. C'est le cas, par exemple, des fonctions <em>getElementById()</em> et <em>addEventListener()</em></p>
+
+      <p>D'autres fonctions ont besoin d'êtres codées par les développeurs... C'est ce que nous allons faire! On va appeler notre fonction <em>createStory()</em></p><pre class="language-html line-numbers"><code><!--<script>
+  function createStory() {
+
+  };
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", createStory);
+</script>--></code></pre>
+      <p>Note qu'à la ligne 6, j'ai remplacé les trois XXX par le nom de ma fonction <em>createStory()</em>. Fais gaffe, car à partir de maintenant, il faut être hyper attentif aux détails. S'il te manque un point-virgule <em>;</em> tout peut casser!</p>
+
+      <p>Maintenant, on va remplir la fonction d'instructions. La première instruction qu'on va donner, c'est un <em>console.log()</em>. Cette instruction va nous permettre de vérifier si l'ordinateur écouter vraiment notre bouton.</p><pre class="language-html line-numbers"><code><!--<script>
+  function createStory() {
+    console.log("Salut les amis!");
+  };
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", createStory);
+</script>--></code></pre>
+      <p>Sauvegarde bien ton fichier, et si ce n'est pas déjà fait, ouvre ta page dans le navigateur. Ouvre ensuite l'<strong>inspecteur</strong>. Si tu utilises Chrome, il faut cliquer sur le bouton droit de la souris et sélectioner <em>Inspect</em>. Si tu utilises Firefox, sélectionne <em>Inspect Element</em>.</p>
+      <div class="two-img">
+        <div>
+          <img src="images/chrome_open_dev.png" alt="Chrome Inspect">
+          <p class="text-centered"><i>Chrome</i></p>
+        </div>
+        <div>
+          <img src="images/firefox_open_dev.png" alt="Firefox Inspect">
+          <p class="text-centered"><i>Firefox</i></p>
+        </div>
+      </div>
+      <p>L'inspecteur a l'air de ceci:</p>
+      <div class="two-img">
+        <div>
+          <img src="images/chrome_dev_tool.png" alt="Chrome Inspect" width="400px">
+          <p class="text-centered"><i>Chrome</i></p>
+        </div>
+        <div>
+          <img src="images/firefox_dev_tool.png" alt="Firefox Inspect" width="400px">
+          <p class="text-centered"><i>Firefox</i></p>
+        </div>
+      </div>
+      <p>Tu peux y voir le code HTML de ta page! Ce qui nous intéresse, cependant, c'est la <strong>console</strong>. C'est là où notre code Javascript <em>console.log("Salut les amis");</em> va s'afficher. Pour accéder à la console, clique sur l'onglet... <strong>Console</strong>!</p>
+      <div class="two-img">
+        <div>
+          <img src="images/chrome_console_tab.png" alt="Chrome Inspect" width="400px">
+          <p class="text-centered"><i>Chrome</i></p>
+        </div>
+        <div>
+          <img src="images/firefox_console_tab.png" alt="Firefox Inspect" width="400px">
+          <p class="text-centered"><i>Firefox</i></p>
+        </div>
+      </div>
+      <p>Rafraîchis ta page web en appuyant sur les touches <em>Ctrl</em> + <em>Shift</em> +  <em>R</em>.</p>
+      <p>Cliques sur ton bouton et regarde ce qui se passe dans la console. Tu devrais voir le texte "Salut les amis!" s'afficher:</p>
+      <iframe src="https://giphy.com/embed/1eujuvMWzrthRQdnVD" width="480" height="243" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <p>Félicitations, ton bouton est sur écoute!</p>
+    </div>
+    <div class="step">
+      <h3>Code l'histoire folle</h3>
+      <p>On y est presque!</p>
+      <p>Pour notre fonction <em>createStory()</em>, on a besoin d'une variable contenant le texte de notre histoire.</p>
+      <pre class="language-html line-numbers"><code><!--<script>
+  function createStory() {
+    const story = `Dans quelques pays (Belgique, Luxembourg, XXX, le père Noël n'a jamais réussi à détrôner XXX.`
+  };
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", createStory);
+</script>--></code></pre>
+      <p><i class="fas fa-exclamation-triangle"></i> Fais bien attention. Ici, je n'ai pas utilisé les guillemets <em>""</em>, mais des accents graves <em>``</em> <i class="fas fa-exclamation-triangle"></i></p>
+      <p>J'ai aussi enlevé la ligne avec <em>console.log("Salut les amis!")</em> (ce n'était qu'un test) et remplacé les trous par des XXX, pour l'instant. L'objectif, c'est de remplacer les XXX par les informations entrées par le joueur.</p>
+
+      <p>Pour ce faire, il faut sélectioner chaque <em>input</em> grâce à son <em>id</em>.</p>
+      <pre class="language-html line-numbers"><code><!--<script>
+  function createStory() {
+    const country = document.getElementById('country');
+    const character = document.getElementById('character');
+
+    const story = `Dans quelques pays (Belgique, Luxembourg, XXX, le père Noël n'a jamais réussi à détrôner XXX.`
+  };
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", createStory);
+</script>--></code></pre>
+
+      <p>N'oublie pas de créer une variable pour <strong>chaque</strong> <em>input</em>! Si tu as un <em>input</em> dont l'<em>id</em> est "color", par exemple, ta variable peut s'appeler "color", comme ceci:</p>
+
+      <pre><code class="language-javascript line-numbers">const color = document.getElementById("color");</code></pre>
+
+      <p>Maintenant, tu peux remplacer les XXX de ta variable story, par les valeurs de tes <em>input</em> comme ceci:</p>
+      <pre class="language-html line-numbers"><code><!--<script>
+  function createStory() {
+    const country = document.getElementById('country');
+    const character = document.getElementById('character');
+
+    const story = `Dans quelques pays (Belgique, Luxembourg, ${country.value}, le père Noël n'a jamais réussi à détrôner ${character.value}.`
+  };
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", createStory);
+</script>--></code></pre>
+      <p>Ce code bizarre</p>
+      <pre><code class="language-javascript line-numbers">${character.value}</code></pre>
+      <p>c'est le code qui permet d'injecter dans notre histoire la valeur des différentes variables que nous avons créées. Il se compose du nom de la variable + un point + "value".</p>
+      <p>Si une de tes variables s'appelle <em>month</em>, le code que tu vas employer pour remplacer les XXX est le suivant:</p>
+      <pre><code class="language-javascript line-numbers">${month.value}</code></pre>
+
+      <p>Une fois que tu as remplacé tous les XXX de ton histoire, il est temps de tester notre travail. Pour tester, on va utiliser <em>console.log()</em> une fois de plus.</p>
+
+      <pre class="language-html line-numbers"><code><!--<script>
+  function createStory() {
+    const country = document.getElementById('country');
+    const character = document.getElementById('character');
+
+    const story = `Dans quelques pays (Belgique, Luxembourg, ${country.value}), le père Noël n'a jamais réussi à détrôner ${character.value}.`
+
+    console.log(story);
+  };
+
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", createStory);
+</script>--></code></pre>
+
+      <p>Dans ton navigateur, ouvre ta console, remplis le formulaire et appuie sur ton bouton. Ton histoire devrait s'afficher correctement dans la console!</p>
+      <div class="two-img">
+        <img src="images/console_story.png" alt="Console story">
+      </div>
+    </div>
+    <div class="step">
+      <h3>Affiche ton histoire sur ta page web</h3>
+      <p>La console c'est chouette pour tester, mais pas pour notre jeu final. On veut que l'histoire s'affiche sur notre page web. Pour cela, il nous faut encore un peu d'HTML et de Javascript.</p>
+
+      <p>Première chose, créer une <em>div</em> vide et lui donner une <em>id</em>. C'est dans cette div (sans contenu au départ) qu'on va "injecter" l'histoire. C'est ce que j'ai fait à la ligne 18:</p>
+      <pre class="language-html line-numbers">
+<code><!--<body>
+  <div class="container">
+    <h1>La folle histoire</h1>
+
+    <form>
+      <div>
+        <label for="country">Pays:</label>
+        <input type="text" id="country" placeholder="Canada">
+      </div>
+      <div>
+        <label for="character">Un personnage célèbre:</label>
+        <input type="text" id="character" placeholder="Céline Dion">
+      </div>
+      <div>
+        <input type="button" id="submit" value="Raconte-moi une histoire!">
+      </div>
+    </form>
+    <div class="output"></div>
+  </div>
+  <script>...</script>
+</body>--></code></pre>
+      <p>Pour pouvoir injecter du contenu dans</p>
+      <pre class="language-html"><code><!--<div class="output"></div>--></code></pre>
+      <p>il faut une fois de plus sélectioner la div. J'ajoute donc dans la partie <em>script</em> de mon code la nouvelle variable <em>output</em> (ligne 5) et à la place de <em>console.log(story)</em>, j'ajoute <em>output.innerHTML = story;</em></p>
+      <pre class="language-html line-numbers"><code><!--<script>
+  function createStory() {
+    const country = document.getElementById('country');
+    const character = document.getElementById('character');
+    const output = document.getElementById('output');
+
+    const story = `Dans quelques pays (Belgique, Luxembourg, ${country.value}), le père Noël n'a jamais réussi à détrôner ${character.value}.`
+
+    output.innerHTML = story;
+  };
+
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", createStory);
+</script>--></code></pre>
+
+
+      <p>Et voilà, le tour est joué! Tu peux faire jouer tous tes amis.</p>
+      <div class="two-img">
+        <img src="images/output.png" alt="Output">
+      </div>
+    </div>
+    <div class="step">
+      <h3>Pour les supras motivés <i class="fas fa-fist-raised"></i></h3>
+      <p>Le top, ça serait de faire "disparaître" le formulaire quand on appuie sur le bouton. Pas de problème... je te laisse t'inspirer de mon code <i class="fas fa-smile-wink"></i></p>
+    </div>
+    <h1><i class="fas fa-candy-cane"></i>   Joyeuses fêtes!   <i class="fas fa-gifts"></i></h1>
+  </div>
+  <script src="javascript/prism.js"></script>
+  <script>
+    const memoryChoice1 = document.getElementById("memory-choice-1");
+    const memoryChoice2 = document.getElementById("memory-choice-2");
+    const memoryChoice3 = document.getElementById("memory-choice-3");
+    const memoryFormButton = document.getElementById("memory-form-button");
+
+    const markBad = (element) => {
+        element.nextElementSibling.classList.add("bad-check-mark");
+        element.nextElementSibling.insertAdjacentHTML("afterbegin", `<i class="check-mark fas fa-times-circle"></i> `);
+    };
+
+    memoryFormButton.addEventListener("click", (event) => {
+
+      let checkMark = document.querySelectorAll(".check-mark");
+      checkMark.forEach((el) => {
+        el.remove();
+      })
+
+      memoryChoice1.nextElementSibling.classList.remove("bad-check-mark");
+      memoryChoice3.nextElementSibling.classList.remove("bad-check-mark");
+
+      memoryChoice2.nextElementSibling.classList.add("correct-check-mark");
+      memoryChoice2.nextElementSibling.insertAdjacentHTML("afterbegin", `<i class="check-mark fas fa-check-square"></i> `);
+
+
+      if (memoryChoice1.checked) {
+        markBad(memoryChoice1);
+      }
+      else if (memoryChoice3.checked) {
+        markBad(memoryChoice3);
+      }
+    })
+
+  </script>
+</body>
+</html>

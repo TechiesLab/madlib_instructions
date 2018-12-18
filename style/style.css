@@ -1,0 +1,138 @@
+body {
+  background-color: #b2b09b;
+  color: #254441;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Bungee Shade', cursive;
+  color: #ff3c38;
+  text-align: center;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+a {
+  color: #254441;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #43aa8b;
+}
+
+.container {
+  width: 80%;
+  margin: 90px auto;
+}
+
+.header {
+  margin: 30px 0px;
+}
+
+.step {
+  margin: 50px 0px;
+}
+
+#story {
+  font-style: italic;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 30px;
+}
+
+em {
+  font-style: normal;
+  font-weight: bolder;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 24px;
+}
+
+.example {
+  margin: 30px 0px;
+  border: 2px solid #999;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+
+.red-button {
+  font-family: 'Poppins', sans-serif;
+  color: #b2b09b;
+  font-weight: bold;
+  font-size: 26px;
+  text-decoration: none;
+  background-color: #ff3c38;
+  padding: 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+}
+
+.red-button:hover {
+  background-color: #ff6f59;
+}
+
+.green-button {
+  font-family: 'Poppins', sans-serif;
+  color: #b2b09b;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #254441;
+  padding: 14px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 3px;
+}
+
+.green-button:hover {
+  background-color: #43aa8b;
+}
+
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+input[type=radio]:checked {
+  border: 6px solid #254441;
+}
+
+.correct-check-mark {
+  background-color: #43aa8b;
+}
+
+.bad-check-mark {
+  background-color: #ff6f59;
+}
+
+iframe, img {
+  border: 10px solid white;
+  border-radius: 2px;
+  box-shadow: 5px 5px 5px #254441;
+}
+
+.two-img {
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.text-centered {
+  text-align: center;
+}
