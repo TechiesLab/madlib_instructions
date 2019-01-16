@@ -488,12 +488,12 @@
         <input type="button" id="submit" value="Raconte-moi une histoire!">
       </div>
     </form>
-    <div class="output"></div>
+    <div id="output"></div>
   </div>
   <script>...</script>
 </body>--></code></pre>
       <p>Pour pouvoir injecter du contenu dans</p>
-      <pre class="language-html"><code><!--<div class="output"></div>--></code></pre>
+      <pre class="language-html"><code><!--<div id="output"></div>--></code></pre>
       <p>il faut une fois de plus sélectioner la div. J'ajoute donc dans la partie <em>script</em> de mon code la nouvelle variable <em>output</em> (ligne 5) et à la place de <em>console.log(story)</em>, j'ajoute <em>output.innerHTML = story;</em></p>
       <pre class="language-html line-numbers"><code><!--<script>
   function createStory() {
